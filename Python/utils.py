@@ -28,7 +28,7 @@ def getusers():
     global userdata,users
     try:
         users = supabase.table("Users").select("username,name,password,usertype,test_status").execute().data
-        userdata={i.pop("username"):i for i in userdata}
+        userdata={i.pop("username"):i for i in users}
     except Exception as e:
         print(str(e))
         userdata=[]
@@ -84,3 +84,4 @@ def getresults():
         print(str(e))
 
         return 0
+
