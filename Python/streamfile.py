@@ -266,7 +266,7 @@ elif(st.session_state.user and st.session_state.usertype.lower()=='hr'):
                 file_name='test_results.csv',
                 mime='text/csv',
             )
-    else:
+    elif data_page=="Tests Data":
         if len(df2)==0:
             st.info("No test data found.")
         else:
@@ -300,5 +300,6 @@ else:
     """
 
     st.markdown(htmltext,unsafe_allow_html=True)
+
 
 
