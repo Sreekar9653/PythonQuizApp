@@ -255,7 +255,7 @@ elif(st.session_state.user and st.session_state.usertype.lower()=='hr'):
     df1,df2=utils.getresults()
     data_page=st.tabs(["Users Data","Tests Data"])
     if data_page=="Users Data":
-        if df1.empty:
+        if len(df1)==0:
             st.info("No user data found.")
         else:
             st.dataframe(df1)
@@ -267,7 +267,7 @@ elif(st.session_state.user and st.session_state.usertype.lower()=='hr'):
                 mime='text/csv',
             )
     else:
-        if df2.empty:
+        if len(df2)==0:
             st.info("No test data found.")
         else:
             st.dataframe(df2)
@@ -300,4 +300,5 @@ else:
     """
 
     st.markdown(htmltext,unsafe_allow_html=True)
+
 
