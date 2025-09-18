@@ -8,8 +8,8 @@ import utils
 import os                                   # To get operating system information
 import json
 
-hr_image=os.getcwd()+"\\"+'images\\hr.jpg'
-user_image=os.getcwd()+"\\"+'images\\user.png'
+hr_image=os.getcwd()+"/"+'images/hr.jpg'
+user_image=os.getcwd()+"/"+'images/user.png'
 # ------------- Caching icons ------------------
 @st.cache_data                                      
 def get_img_as_base64(file):
@@ -119,7 +119,7 @@ def starttimer(countdown,statevalue="",change_state=True):
         timedif=int(countdown-time.time()+st.session_state.curtime) if(st.session_state.continue_timer) else timedif
         timetext=st.markdown(f"""
             <div style='border:4px black ridge;padding:5px;border-radius:5px;text-align:right;width:fit-content;float:right'>
-                Time left: {timedif // 60:02d}min : {timedif % 60:02d}sec
+                Time left: {timedif / 60:02d}min : {timedif % 60:02d}sec
             </div>""",unsafe_allow_html=True)
         
         if(not change_state):st.session_state.test_rem_time-=1
@@ -233,7 +233,7 @@ if(st.session_state.user and st.session_state.usertype=='candidate'):
         answer = st.chat_input("Enter your answer",key="answer"+str(num_questions),on_submit=answerfunc)
 
     elif st.session_state.user_cur_state=='End':   
-        st.text("Your test answers are being saved. Please wait for a moment...\nPlease Dont close the window")
+        st.text("Your test answers are being saved. Please wait for a moment.../nPlease Dont close the window")
         with st.spinner("Saving your answers..."):
             print(utils.evaluate(st.session_state.username,st.session_state.messages,st.session_state.time_taken))
             st.session_state.user_cur_state='Completed'
@@ -241,7 +241,7 @@ if(st.session_state.user and st.session_state.usertype=='candidate'):
     
     elif st.session_state.user_cur_state=='Completed':
         successmsg=st.success("Your answers are saved successfully")
-        st.text("Your Answers have been saved.\nThank you for your patience.\nNow you can close the window.\n\n")
+        st.text("Your Answers have been saved./nThank you for your patience./nNow you can close the window./n/n")
         st.markdown("<big><b>Note</b> : Once submitted, you <b>cannot reappear</b> for the test again.</big>",unsafe_allow_html=True)
         time.sleep(2)
         successmsg.empty()
@@ -277,7 +277,7 @@ elif(st.session_state.user and st.session_state.usertype.lower()=='hr'):
             )
 
 else:
-    imgheader=get_img_as_base64(os.getcwd()+"\\"+"images\\Servletlogo.png")
+    imgheader=get_img_as_base64(os.getcwd()+"/"+"images/Servletlogo.png")
     htmltext = f"""
     <div>
         <br>
@@ -295,4 +295,5 @@ else:
         </div>
     </div>
     """
+
     st.markdown(htmltext,unsafe_allow_html=True)
