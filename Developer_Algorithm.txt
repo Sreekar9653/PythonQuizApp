@@ -1,0 +1,9 @@
+1. Create a streamlit interface
+2. Connect database
+3. Add an instance of Generative AI
+4. Test the instance with various prompts
+5. Generate latest Excel questions
+6. Ask the questions and assess the answers
+7. Summarize the answers.
+8. Make an admin portal.
+9. Show the results there.

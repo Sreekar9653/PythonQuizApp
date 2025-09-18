@@ -1,0 +1,21 @@
+1. There can be set more formats,patterns for usernames, passwords
+2. The prompts can be modifies such that answer generates quickly.
+3. Admin portal can be enhanced upto a huge extent.
+4. Camera and mic can be turned on for the exam.
+5. Restrictions of cheats like :
+    Using Camera : capturing photo, second person/device in camera, face not recognized warning 
+    Using keyboard : Split screen, new software, windows tab change, minimize, copy paste, tab/browser switching 
+    Using any different device - headphones, etc
+    can be implemented.
+6. Idle time can be maintained such that if user is idle for more than 10 minutes, test can end.
+7. If user has scored less in any 3 questions, test can end.
+8. 10 marks each
+    if obtained marks/(total questions*10) < 0.45, poor
+    elif 0.55 >obtained marks/(total questions*10) >= 0.45, average
+    elif 0.65 >obtained marks/(total questions*10) >= 0.55, Beginner
+    elif 0.85 >obtained marks/(total questions*10) >= 0.65, intermediate 
+    elif 100 >=obtained marks/(total questions*10) >= 0.85, advanced
+9. Implement sound for interviewer, accept user sound
+10. Restrict candidates from sign-up
+11. Check internet connectivity/ irregular network
+

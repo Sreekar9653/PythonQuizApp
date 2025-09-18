@@ -1,0 +1,20 @@
+<div style="text-align: right;font-size:24px; font-weight:bold; text-align:center; margin-top:20px;width:auto;" onload="startTimer(x)">
+  <span id="timer"></span>
+</div>
+<script>
+function startTimer(totalSeconds) {
+  var timer = document.getElementById('timer');
+  var countdown = setInterval(function() {
+    var minutes = Math.floor(totalSeconds / 60);
+    var seconds = totalSeconds % 60;
+    timer.innerHTML = minutes + ":" + seconds;
+
+    if (totalSeconds <= 0) {
+      clearInterval(countdown);
+      timer.innerHTML = "⏰ Time’s up!";
+    }
+    totalSeconds -= 1;
+  }, 1000);
+}
+
+</script>
