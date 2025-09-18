@@ -10,6 +10,9 @@ import json
 
 hr_image=os.getcwd()+"/"+'images/hr.jpg'
 user_image=os.getcwd()+"/"+'images/user.png'
+icon=os.getcwd()+"/"+'images/Servletlogo.png'
+st.set_page_config(page_title="SreeQuizApp",page_icon=icon)
+
 # ------------- Caching icons ------------------
 @st.cache_data                                      
 def get_img_as_base64(file):
@@ -297,3 +300,4 @@ else:
     """
 
     st.markdown(htmltext,unsafe_allow_html=True)
+
