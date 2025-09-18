@@ -1,0 +1,22 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama  # Keep volume for model persistence
+    command: >
+      /bin/sh -c "ollama serve & ollama pull mistral:7b & wait"
+
+  streamlit:
+    build:
+      context: .
+    container_name: streamlit
+    ports:
+      - "8501:8501"
+    depends_on:
+      - ollama
+    # Remove the local volume mount for production
+    # volumes:
+    #   - .:/QuizApp
