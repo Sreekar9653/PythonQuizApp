@@ -22,7 +22,7 @@ def adduser(name,user,password):
 
     try:response = supabase.table("Users").insert(data).execute()
     except Exception as e: print(str(e))
-    else:userdata[user]={"name":name,"password":password,"role":"candidate","test_status":"Not yet started"}
+    else:userdata[user]={"name":name,"password":password,"usertype":"candidate","test_status":"Not yet started"}
 
 def getusers():
     global userdata,users
@@ -82,4 +82,5 @@ def getresults():
         return [users,tests]
     except Exception as e:
         print(str(e))
+
         return 0
