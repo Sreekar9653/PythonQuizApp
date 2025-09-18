@@ -78,10 +78,16 @@ def evaluate(username,context,time_rem):
 # ---------------- Admin Setup ends ----------------
 def getresults():
     try:
-        tests = supabase.table("Tests").select("*").execute().data
-        return [users,tests]
+        userlist = supabase.table("Users").select("*").eq("usertype","candidate").execute().data
+        tests = (supabase.table("Tests")
+                    .select("*, Users!inner(utype)")
+                    .eq("Users.utype", "candidate")   # filter candidates
+                    .execute()
+                ).data
+        return [userlist,tests]
     except Exception as e:
         print(str(e))
 
         return 0
+
 
