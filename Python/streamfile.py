@@ -65,7 +65,7 @@ with st.sidebar:
                 elif(utils.checkuser(password,username)):
                     st.session_state.username = username
                     st.session_state.user=users[username]["name"]
-                    st.session_state.role=users[username]["role"]
+                    st.session_state.role=users[username]["usertype"]
                     st.session_state.userloginmsg="Login successful"
                     st.rerun()
                 else:
@@ -87,7 +87,7 @@ with st.sidebar:
                 else:
                     utils.adduser(name,username,password)
                     st.session_state.username = username
-                    st.session_state.role=users[username]["role"]
+                    st.session_state.role=users[username]["usertype"]
                     st.session_state.user=name
                     st.session_state.userloginmsg="New user created"
                     st.rerun()
@@ -300,6 +300,7 @@ else:
     """
 
     st.markdown(htmltext,unsafe_allow_html=True)
+
 
 
 
