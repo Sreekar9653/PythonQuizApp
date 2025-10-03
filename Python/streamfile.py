@@ -40,7 +40,7 @@ if 'teststatus' not in st.session_state:
     st.session_state.teststatus='Loading your Exam Page...'
 if "user" not in st.session_state:
     st.session_state.username = ""
-    st.session_state.usertype = ""
+    st.session_state.role = ""
     st.session_state.user = ""
 if "userloginmsg" not in st.session_state:
     st.session_state.userloginmsg = ""
@@ -65,7 +65,7 @@ with st.sidebar:
                 elif(utils.checkuser(password,username)):
                     st.session_state.username = username
                     st.session_state.user=users[username]["name"]
-                    st.session_state.usertype=users[username]["usertype"]
+                    st.session_state.role=users[username]["role"]
                     st.session_state.userloginmsg="Login successful"
                     st.rerun()
                 else:
@@ -87,7 +87,7 @@ with st.sidebar:
                 else:
                     utils.adduser(name,username,password)
                     st.session_state.username = username
-                    st.session_state.usertype=users[username]["usertype"]
+                    st.session_state.role=users[username]["role"]
                     st.session_state.user=name
                     st.session_state.userloginmsg="New user created"
                     st.rerun()
@@ -179,7 +179,7 @@ def answerfunc():
     st.session_state.time_taken[-1] = int(time.time()-que_start_time)
 
 # After login condition
-if(st.session_state.user and st.session_state.usertype=='candidate'):
+if(st.session_state.user and st.session_state.role=='candidate'):
     # ------------ Homepage --------------------
     if st.session_state.user_cur_state=='login':
         remsecs=300 - st.session_state.spent_time
@@ -249,7 +249,7 @@ if(st.session_state.user and st.session_state.usertype=='candidate'):
         time.sleep(2)
         successmsg.empty()
 
-elif(st.session_state.user and st.session_state.usertype.lower()=='hr'):
+elif(st.session_state.user and st.session_state.role.lower()=='hr'):
     st.title("HR Dashboard")
     st.markdown("You can view the test results of candidates here.")
     df1,df2=utils.getresults()
@@ -300,6 +300,7 @@ else:
     """
 
     st.markdown(htmltext,unsafe_allow_html=True)
+
 
 
 
